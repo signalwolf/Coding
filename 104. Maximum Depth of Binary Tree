@@ -1,0 +1,12 @@
+# Solution #1: recursion: divide and conquer
+# coding time: less than 3 mins
+# runing time: 89ms, 9%; 52ms, 91% 101ms, 3%; 62ms, 54%; 
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if root == None:
+            return 0
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1 
