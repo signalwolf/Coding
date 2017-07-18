@@ -1,0 +1,23 @@
+# code time: 13: 25 -- 13:34: 10mins
+# run time: 65ms, 5%; 62ms ,6%; 85ms, 1%;
+class Solution(object):
+    def getRow(self, rowIndex):
+        """
+        :type rowIndex: int
+        :rtype: List[int]
+        """
+        rowIndex += 1
+        if rowIndex <= 0:
+            return []
+        if rowIndex == 1:
+            return [1]
+        rlist = []
+        for i in xrange(rowIndex):
+            temp = [1] * (i + 1)
+            rlist.append (temp)
+        print rlist
+        for i in xrange(len(rlist)):
+            for j in xrange(len(rlist[i])):
+                if i >= 2 and j != 0 and j != (len(rlist[i]) - 1):
+                    rlist [i][j] = rlist[i -1 ][j -1 ] + rlist[i -1 ][j]
+        return rlist[rowIndex - 1]
