@@ -1,0 +1,16 @@
+# codetime： 14:17 -- 14:21
+# run time: 56ms, 29% ; 46ms, 65% 55ms, 33%; 72ms, 9%52ms, 37% 
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices) <= 1:
+            return 0
+        min_point = prices[0]
+        maxdiff = 0
+        for i in xrange(1, len(prices)): 
+            maxdiff = max (maxdiff, prices[i] - min_point)
+            min_point = min(min_point, prices[i])
+        return maxdiff
