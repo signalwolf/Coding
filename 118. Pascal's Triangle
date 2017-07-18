@@ -1,6 +1,7 @@
 # Solution #1: dp
 # code time: 13:09 -- 13:19 --> 10mins
 # run time: 32ms, 93%; 42ms, 44%; 62ms, 5%; 32ms, 93% 
+# further optimization could be combine the two loop together and assign it while perform loop
 class Solution(object):
     def generate(self, numRows):
         """
