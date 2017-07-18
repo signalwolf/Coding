@@ -1,0 +1,27 @@
+# Solution #1: recursion:
+# coding time: start time: 10:46 --> 11:01: 15mins
+# runing time: 82ms, 3.52%; 52ms, 32%; 55ms, 27% ---> 
+# slower than average: reason: Once hit the false, it won't break, it will keep going. 
+# modified #1: once hit False, directly return False to upper level.
+# run time: 52ms, 32%; 39ms, 82%; 49ms, 42%
+class Solution(object):
+    def isSameNode (self, node1, node2):
+        if node1 == None or node2 == None:
+            if node1 == node2:
+                return True
+            else:
+                return False
+        else:
+            if node1.val == node2.val and self.isSameNode (node1.left, node2.right) and self.isSameNode(node1.right, node2.left):
+                return True
+            else:
+                return False
+    
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if root is None:
+            return True
+        return self.isSameNode(root.left, root.right)
