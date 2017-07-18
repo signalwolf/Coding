@@ -1,5 +1,5 @@
 # code time: 13: 25 -- 13:34: 10mins
-# run time: 65ms, 5%; 62ms ,6%; 85ms, 1%;
+# run time: 65ms, 5%; 62ms ,6%; 85ms, 1%; 55, 13% 
 class Solution(object):
     def getRow(self, rowIndex):
         """
