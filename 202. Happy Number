@@ -1,0 +1,43 @@
+# code time: 5mins
+# run time: 39ms, 91%; 36ms, 97%; 
+# the question is 7 is happy number as well, but how could I know before the interview? ！！！！
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        # dp solution: a number is happy number when its next number is happy number
+        if n == 1 or n == 7:
+            return True
+        elif n >= 10:
+            new_n = 0
+            while n != 0:
+                temp = n%10
+                new_n = temp* temp + new_n # 0,10 --> 0, 1 --> 1, 82
+                n = n/10 
+            return self.isHappy (new_n)
+        else:
+            return False
+        
+#         if n <= 0:
+#             return False
+#         elif n == 1:
+#             return True
+#         else: 
+#             sumall = n 
+#             #i = 0
+#             while sumall > 10:
+#                 sumT = 0
+#                 while n>=10:
+#                     curr = n%10
+#                     n = n/10
+#                     sumT = curr*curr + sumT
+#                 sumall = sumT + n*n
+#                 n = sumall
+#                 #print sumall
+#                 #i = i+1
+#             if (sumall in [1,7]) or n%10 ==0:
+#                 return True
+#             else:
+#                 return False
