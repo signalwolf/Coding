@@ -1,0 +1,18 @@
+# run time: 62ms, 21% / 66ms, 17%/ 52ms, 44%
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # solution #1: sort and find, O (nlogn)
+        if len(nums) == 1:
+            return nums[0]
+        nums.sort()
+        if nums[0] != nums[1]:
+            return nums[0]
+        if nums[-1] != nums[-2]:
+            return nums[-1]
+        for i in xrange(0,len(nums) -2, 2):
+            if nums[i] != nums[i + 1]:
+                return nums[i]
