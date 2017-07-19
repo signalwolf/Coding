@@ -1,0 +1,32 @@
+# code time: 11:25 -- 11:46: 21mins 
+# learned: use isalnum() to check if curr string is only have number and alpha.
+# so this is easier to filter out those char
+# run time: 65ms, 91%; 82ms, 53%; 69ms, 83%
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        # Two pointer solution:
+        # consider the len (s) == 0, 1
+        start, end = 0, len(s) -1 
+        exclude = [':',',',' ','.','@','!','#','$','%','&','-']
+        # 3: [1,2,3] 0 --> 1; [1,2,3,4] --> 0 --> 2
+        while start < end:
+            while (not s[start].isalnum()) and start < end:
+                start += 1
+            while (not s[end].isalnum()) and start < end: 
+                end -= 1
+            if s[start].upper() == s[end].upper():
+                start += 1
+                end -= 1
+            else:
+                return False
+        return True
+            
+                
+                
+                
+                
+            
