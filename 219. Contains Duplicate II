@@ -1,0 +1,17 @@
+# code time: break by meetings
+# run time: 49ms, 62ms, 85%, 43% 55ms, 65%
+class Solution(object):
+    def containsNearbyDuplicate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        # solution #1: hash map
+        hashM = {}
+        for i in xrange(len(nums)):
+            if nums[i] in hashM and i - hashM[nums[i]] <= k:
+                return True
+            else:
+                hashM[nums[i]] = i
+        return False
