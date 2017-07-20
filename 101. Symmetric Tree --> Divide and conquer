@@ -4,6 +4,8 @@
 # slower than average: reason: Once hit the false, it won't break, it will keep going. 
 # modified #1: once hit False, directly return False to upper level.
 # run time: 52ms, 32%; 39ms, 82%; 49ms, 42%
+# Idea: use divide and conquer solution, to judge if root.left and root.right is symmetric, needed to check if left.left
+# and root.right is same node. then this can goes to recursion.
 class Solution(object):
     def isSameNode (self, node1, node2):
         if node1 == None or node2 == None:
@@ -12,7 +14,8 @@ class Solution(object):
             else:
                 return False
         else:
-        # modified part: 
+        # modified part: node1 and node2 is same only the val is same and left == right, right == left, then keep asking
+        # kid node. 
             #if node1.val == node2.val and self.isSameNode (node1.left, node2.right) and self.isSameNode(node1.right, node2.left):
             #    return True
             #else:
@@ -33,4 +36,5 @@ class Solution(object):
         """
         if root is None:
             return True
+        # check if left, right symmetic
         return self.isSameNode(root.left, root.right)
