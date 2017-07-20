@@ -1,0 +1,27 @@
+# code time: 17:38 -- 17:43 
+# run time： 49ms, 55% ; 46ms, 71%; 39ms, 97%
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if head == None or head.next == None:
+            return head
+        dummy = ListNode (0)
+        dummy.next = head
+        pre, curr = head, head.next
+        while curr != None:
+            temp = curr.next
+            curr.next = pre
+            pre = curr
+            curr = temp
+        dummy.next.next = None
+        dummy.next = pre
+        return dummy.next
