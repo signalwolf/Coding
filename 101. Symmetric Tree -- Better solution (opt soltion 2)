@@ -1,0 +1,37 @@
+# run time: 45ms, 60%; 42ms, 71%; 56ms, 23%; 42ms, 71%
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        # ilteratively solution: 14%; 45ms, 62%; 39ms, 87%
+        if root == None:
+            return True
+        queue = [root, root]
+        while len(queue) != 0:
+            node1 = queue.pop (0)
+            node2 = queue.pop (0)
+            if node1 == None and node2 == None:
+                continue
+            if node1 == None or node2 == None:
+                return False
+            if node1.val != node2.val:
+                return False
+            queue.append (node1.left)
+            queue.append (node2.right)
+            queue.append (node1.right)
+            queue.append (node2.left)
+        return True
+        
+# [1,2,2,null,3,null,3] --> [1] -->[2,2] --> [None, 3, None, 3] --> return False
+# [1,2,2,null,3,3,null] --> [None, 3, 3, None] ---> s/e = [None], [None] --> [3,3] --> [None, None, None, None] 
+# [1,2] --> [2, None] 
