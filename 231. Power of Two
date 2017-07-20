@@ -1,0 +1,32 @@
+# 10:59 -- 11:01 
+# run time: 58ms, 18%; 45ms, 58%; 56ms, 20%
+# optimization: binary search: time limited exceed, due to the upper boundry too large
+# Optimization: %2, notice the end is n == 1 not n == 0; also have the problem with n == 0
+# run time: 42ms, 72%; 48ms, 46%; 45ms, 58%
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n <= 0:
+            return False
+        while n != 1:
+            if n % 2 != 0:
+                return False
+            else:
+                n = n/2
+        return True
+        # start, end = 0, n
+        # while start + 1 < end: 
+        #     mid = start + (end - start) / 2
+        #     if 2**mid > n:
+        #         end = mid
+        #     elif 2**mid < n:
+        #         start = mid
+        #     else:
+        #         return True
+        # if 2** start == n or 2**end == n:
+        #     return True
+        # else:
+        #     return False
