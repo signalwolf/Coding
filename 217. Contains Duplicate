@@ -1,5 +1,6 @@
 # code time: 07:18 -- 07:20
 # run time: 56ms, 57% ; 52ms, 70% ; 66ms, 31%
+# solution #1: sorted and find
 class Solution(object):
     def containsDuplicate(self, nums):
         """
@@ -11,6 +12,17 @@ class Solution(object):
             if nums[i] == nums[i + 1]:
                 return True
         return False
-            
-        
-        
+# Soltuon #2 : hash table: 
+# run time: 82ms, 10%; 55ms, 61%; 49ms, 81%; 
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        hashT = {}
+        for i in nums:
+            if i in hashT:
+                return True
+            hashT[i]  = 0
+        return False
