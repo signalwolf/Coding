@@ -1,0 +1,16 @@
+# code time: 07:18 -- 07:20
+# run time: 56ms, 57% ; 52ms, 70% ; 66ms, 31%
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        nums.sort()
+        for i in xrange(len(nums) -1):
+            if nums[i] == nums[i + 1]:
+                return True
+        return False
+            
+        
+        
