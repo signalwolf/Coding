@@ -1,0 +1,33 @@
+# code time: 17:07: 17：34 --> 17mins  almost can't finish it
+# run time: 65ms, 59%; 58ms, 75%; 68ms, 53%
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s) == 0 and len(t) == 0:
+            return True
+        elif len(s) != len(t):
+            return False
+        else:
+            listS, listT = [0]*len(s), [0]*len(s)
+            dictS, dictT = {}, {}
+            for i in xrange(len(s)):
+                if s[i] in dictS:
+                    listS[i] = dictS[s[i]]
+                else:
+                    dictS[s[i]] = i
+                    listS[i] = i
+                
+                if t[i] in dictT:
+                    listT[i] = dictT[t[i]]
+                else:
+                    dictT[t[i]] = i
+                    listT[i] = i 
+            
+            if listT == listS:
+                return True
+            else:
+                return False
