@@ -1,5 +1,5 @@
-# code time: 08:02 -- 
-# run time
+# code time: 08:02 -- 08:07
+# run time: 42ms, 35%; 76ms, 0% ; 42ms, 35%
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
