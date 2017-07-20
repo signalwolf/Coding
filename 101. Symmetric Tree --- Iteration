@@ -1,0 +1,44 @@
+# This solution use iteration + queue to check if it is symmetric tree, 
+# Idea: process this level by level, so queue is used. Then we process every level to see if it's val was minor.
+# from the idea, it shall expected to be faster. 
+# ilteratively solution: 14%; 45ms, 62%; 39ms, 87%
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if root == None:
+            return True
+        queue, length = [root], 1
+        while len(queue) != 0: 
+            while len(queue) != length * 2: # I think it kind of silly to put like this, any better way to do it? 
+            # leet code provide better solution, when added to queue, add left.left and right.right. then you can compare
+            # every two node in queue. Looks like better
+                curr = queue.pop (0)
+                queue.append(curr.left)
+                queue.append(curr.right)
+            start, end = 0, len(queue) - 1
+            while start < end:
+                if queue [start] == None or queue[end] == None:
+                    if queue[end] == queue[start]:
+                        queue.pop(end) 
+                        queue.pop(start)
+                        end = end - 2
+                    else:
+                        return False
+                else:
+                    if queue[start].val != queue[end].val:
+                        return False
+                    start += 1
+                    end -= 1
+            length = len(queue)
+        return True
