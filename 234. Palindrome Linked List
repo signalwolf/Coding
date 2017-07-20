@@ -1,0 +1,30 @@
+# 11:17 -- 11:37
+# solution #1: reverse it and compare with the original one? Meet following problem, after reverse, the original head point to # # None. So, this result got wrong here. 
+# solution #2: save all val into list and then compare the list
+# run time: 152ms, 49%;  142ms, 70%; 115ms, 99% 
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        result = []
+        while head != None:
+            result.append (head.val)
+            head = head.next
+        start, end = 0, len(result) - 1
+        # exam: 0, True; [1], True; [1,2,1]: 
+        while start < end:
+            if result[start] == result [end]:
+                start += 1
+                end -= 1
+            else:
+                return False
+        return True
