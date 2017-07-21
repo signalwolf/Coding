@@ -1,0 +1,23 @@
+# This solution indicate another way to delete an node, by copying its val and next from next one and keep doing so.
+# run time: 62ms, 24.66% 59ms, 32% 49ms, 76%
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        if node == None:
+            return node
+        if node.next == None:
+            node = None
+        node.val = node.next.val
+        node.next = node.next.next
+        
+        
+        
