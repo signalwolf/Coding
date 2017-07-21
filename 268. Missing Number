@@ -1,0 +1,13 @@
+# 利用等差公式求和公式来算
+# run time: 49ms, 73%; 45ms, 87%; 42ms, 93%
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # [0,2] --> 1, 2 2-1
+        sumC = sum (nums)  # 0 + 1 + ... + n
+        sumT = (len(nums) * (len(nums) - 1)) / 2 
+        # [0, 1, 2, 4] --> sumT = 6 --> 4* 3 sumC = 7
+        return len(nums) - (sumC - sumT)
