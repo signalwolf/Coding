@@ -1,0 +1,16 @@
+# note the way sorted work, you can sorted (string) but string have no default method sorted like string.sorted. 
+# I hit this issue in begining.
+# run time: 119ms, 13%; 119ms, 13%; 89ms, 58%. 
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s) != len(t):
+            return False
+        if len(s) == 0:
+            return True
+        return sorted(s) == sorted(t)
+        
