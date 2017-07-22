@@ -1,0 +1,35 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    # validation: [1,2,3,4,5,6,7] --> ([2],0)  
+    
+    def helper (self, root, depth):
+        if root == None:
+            return depth
+        depth_left= self.helper (root.left, depth + 1)
+        depth_right = self.helper (root.right, depth + 1)
+        if depth_left == -1 or depth_right == -1 or abs(depth_left - depth_right) > 1:
+            return -1
+        else:
+            return max(depth_left, depth_right)
+        
+        
+    def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        # devide and conquer:-1 in depth represent it is False
+        if root == None:
+            return True
+        depth_left= self.helper (root.left, 0)
+        depth_right = self.helper (root.right, 0)
+        if depth_left == -1 or depth_right == -1 or abs(depth_left - depth_right) > 1:
+            return False
+        else:
+            return True
