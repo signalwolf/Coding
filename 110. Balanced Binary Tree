@@ -1,3 +1,4 @@
+# runtime: 73ms, 80%; 72ms, 80%; 75ms, 74%
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
