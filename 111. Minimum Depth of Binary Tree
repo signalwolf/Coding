@@ -1,0 +1,38 @@
+# 09:37 -- 09:52, 218ms, 0.18%; 205ms, 0.18%
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def helper (self, root, depth):
+        if root is None:
+            return depth
+        else:
+            depth_left = self.helper (root.left, depth + 1 )
+            depth_right = self.helper (root.right, depth + 1)
+            print depth_left, depth_right, root.val, depth
+            if depth_left == depth + 1 or depth_right == depth + 1:
+                return max (depth_left, depth_right)
+            return min(depth_left, depth_right)
+        
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        # solution # 1: divide and conquer
+        ## double check root == None case
+        # [1,2,3,4,null,null,5] --> [2] 3, [3] 
+        if root is None:
+            return 0
+        depth_left = self.helper (root.left, 1)
+        depth_right = self.helper (root.right, 1)
+        if min (depth_left, depth_right) == 1:
+            return max (depth_left, depth_right)
+        return min (depth_left, depth_right)
+        
+        
+        
