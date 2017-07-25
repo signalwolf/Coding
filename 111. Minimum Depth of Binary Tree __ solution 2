@@ -1,0 +1,28 @@
+# 09:52 -- 10:02: v2 66ms, 61%; 76ms, 33%; 72ms, 41%
+# 
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+import sys
+class Solution(object):
+    def helper (self, root):
+        if root == None:
+            return sys.maxint
+        if root.left == None and root.right == None:
+            return 1
+        else:
+            return min (self.helper (root.left), self.helper (root.right)) + 1
+        
+    
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if root is None:
+            return 0
+        return self.helper (root)
+        
