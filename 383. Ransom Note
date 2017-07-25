@@ -1,0 +1,26 @@
+# 16:24 : 16:52
+# run time: 205ms, 18%; 219ms, 15%; 199ms, 18% 
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        p1, p2 = 0, 0
+        l1, l2 = len(ransomNote), len(magazine)
+        if l1 == 1 and l2 == 1:
+            return ransomNote == magazine
+        magazine = sorted (magazine)
+        ransomNote = sorted (ransomNote)    
+        while p1 < l1 and p2 < l2:
+            if ransomNote [p1] == magazine[p2]:
+                p1 += 1
+                p2 += 1
+            else:
+                p2 += 1
+        if p1 == l1:
+            return True
+        else:
+            return False
+        
