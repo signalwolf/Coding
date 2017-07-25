@@ -1,0 +1,34 @@
+# run time: 36ms, 75%; 32ms, 93%; 36ms, 75%
+# my soultuon： Simply count how many 5 availavble: result, failed @ 1808548329 due to tme limited exceed. 
+# modified version: count 5, easy: n/25 can know how many 5 inside, then n/25, can know how many 25 inside, then 125...
+class Solution(object):
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        # new solution:
+        temp = 5
+        count5 = 0 
+        while n/temp != 0:
+            count5 += n/temp
+            temp = temp * 5
+        return count5
+        
+        # old solution: run too slow
+        #if n == 0:
+        #     return 0
+        # count5 = 0 
+        # i = 1
+        # while i * 5 <= n:
+        #     if i % 5 != 0:
+        #         count5 += 1
+        #     else:
+        #         temp = i
+        #         count5 += 1
+        #         while temp % 5 == 0 and temp != 0 :
+        #             temp /= 5
+        #             count5 += 1
+        #     i += 1
+        #     print i 
+        # return count5 
