@@ -1,0 +1,32 @@
+# 11:32 --> 11:46 : no resubmit
+# run time: 58ms, 91%; 72ms, 36%; 56%, 96%
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def helper (self, root, total, sum):
+        if root == None:
+            return False
+        if root.left == None and root.right == None:
+            if sum == total + root.val:
+                return True
+            else:
+                return False
+        else:
+            if self.helper (root.left, total + root.val, sum):
+                return True
+            else:
+                return self.helper (root.right, total + root.val, sum)
+            
+    def hasPathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: bool
+        """
+        return self.helper (root, 0 , sum)
+        
