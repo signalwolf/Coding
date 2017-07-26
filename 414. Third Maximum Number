@@ -1,0 +1,32 @@
+# 11:46 -- 12:06: 39ms, 74%; 35ms, 93%; 49ms, 33%
+import sys
+class Solution(object):
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # take example: [2, 2, 3, 1] --> [-max, -max, -max] --> [2, -max, -max] --> [3,2,-max] --> [3,2,1]
+        # [3,2,1] --> [3, -max, -max] -->[3, 2, -max] 
+        # [1,2,2,5,3,5] --> [1,-max,-max] --> [2,1,-max] --> [5,2,1] --> [5,3,2]
+        if len(nums) < 3:
+            return max (nums)
+        # note: if set (nums) < 3, you should return max as well. 
+        first = second = third = checker = -sys.maxint
+        for i in nums:
+            if i == first or i == second or i == third: 
+                continue 
+            elif i > first:
+                third = second
+                second = first
+                first = i
+            elif i > second :
+                third = second
+                second = i
+            elif i > third :
+                third = i
+        result = [first, second, third]
+        if first != checker and second != checker and third != checker:
+            return third
+        else:
+            return first
