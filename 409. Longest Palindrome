@@ -1,0 +1,28 @@
+# run time: 38ms, 94%; 43ms, 79%; 42ms, 80%
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        dicts = {}
+        length = 0
+        flag = 0 
+        for i in s:
+            if i in dicts:
+                dicts[i] += 1
+            else:
+                dicts[i] = 1
+        for key in dicts:
+            val = dicts[key]
+            if val % 2 == 0:
+                length += val
+            elif val != 1:
+                length += (val - 1) 
+                flag = 1
+            else:
+                flag = 1
+        return length + flag
+                
+            
+        
