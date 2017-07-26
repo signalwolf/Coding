@@ -1,0 +1,30 @@
+# checked the answer: 
+# run time: 1515, 24%; 1545, 21% ; 1728, 5%
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def findpath (self, root, sum): # find the path sum from root to the leaf
+        if root == None:
+            return 0
+        path = 0
+        if sum == root.val:
+            path += 1
+        path += self.findpath (root.left, sum - root.val)
+        path += self.findpath (root.right, sum - root.val)
+        return path
+        
+    def pathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: int
+        """
+        if root == None:
+            return 0
+        return self.findpath (root, sum) + self.pathSum (root.left, sum) + self.pathSum (root.right, sum)
+        
