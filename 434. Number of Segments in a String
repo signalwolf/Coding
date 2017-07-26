@@ -1,0 +1,17 @@
+# 32ms, 73%; 42ms, 24% ; 35ms, 60%
+class Solution(object):
+    def countSegments(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        output = s.split(' ')
+        count = 0
+        for i in output:
+            if i == '':
+                continue
+            else:
+                count += 1
+        return count
+            
+        
