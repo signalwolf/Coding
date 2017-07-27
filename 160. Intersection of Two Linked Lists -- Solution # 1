@@ -1,0 +1,43 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+# solution # 1: find the length and backward: 10 mins
+class Solution(object):
+    
+    def findlength (self, head):
+        if head == None:
+            return 0
+        length = 0
+        while head != None:
+            head = head.next
+            length += 1
+        return length 
+    
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        if headA == None or headB == None:
+            return None
+        # find the length
+        lenA, lenB = self.findlength (headA), self.findlength (headB)
+        # march the length
+        while lenA > lenB:
+            headA = headA.next
+            lenA -= 1
+        while lenB > lenA:
+            headB = headB.next
+            lenB -= 1
+        while headA != None and headB != None:
+            if headA == headB:
+                return headA
+            else:
+                headA = headA.next
+                headB = headB.next
+        return None
+            
+        
+        
