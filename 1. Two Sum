@@ -1,0 +1,2 @@
+# Solution #1: hash map: push sum - curr into the hashmap then move on, if it was there, then return the index
+# Solution #2: two pointer + sort: sort it first, then if start + end < total, start + 1.
