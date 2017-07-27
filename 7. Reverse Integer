@@ -1,0 +1,4 @@
+# curr val % 10 is the last integer of original then let it * 10 
+# take a example as result: n = 123 --> rn = n%10 = 3, n = n/10 = 12 --> rn = n%10 + rn * 10 = 2 + 30 = 32, n = n/10 = 1;
+# rn = rn * 10 + n%10 = 320 + 1 = 321, n = n/10 = 0 --> break
+# notice to add the flag, if it is -123 then goes to -321.
