@@ -1,0 +1,41 @@
+# solution # 2: intersection is the loop two list:
+# A: a1,a2,a3,c1,c2,c3 B:b1,b2,c1,c2,c3 --> path of Ap: a1,a2,a3,c1,c2,c3,b1,b2,c1,c2,c3 
+#                                           path of Bp: b1,b2,c1,c2,c3,a1,a2,a3,c1,c2,c3
+# general path of A: lenA + lenC + lenB + startC
+# general path of B: lenB + lenC + lenA + startC
+# run time: 479ms, 21%; 522ms, 12%; --> optimization needed
+# run time: 499ms, 16%; 438ms, 36%; 445ms, 38%
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution(object):
+#     def findtail (self, head):
+#         while head.next != None:
+#             head = head.next
+#         return head
+    
+     def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        if headA == None or headB == None:
+            return None
+        # tailA, tailB = self.findtail (headA), self.findtail (headB)
+        currA, currB = headA, headB
+        while currA != None and currB != None:
+            if currA == currB:
+                return currA
+            currA = currA.next
+            currB = currB.next
+            if currA == currB:
+                return currA
+            if currA == None:
+                currA = headB
+            if currB == None:
+                currB = headA
+        return listA
+        
+        
