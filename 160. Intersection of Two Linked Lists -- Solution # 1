@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 # solution # 1: find the length and backward: 10 mins
+# run time: 468ms, 26%; 575ms, 7%; 415ms, 58% 
 class Solution(object):
     
     def findlength (self, head):
