@@ -1,0 +1,28 @@
+# 46ms, 94% 
+class Solution(object):
+    def nextGreaterElement(self, findNums, nums):
+        """
+        :type findNums: List[int]
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        if len(findNums) == 0 or len(nums) == 0:
+            return []
+        dictT = {}
+        for i in xrange(len(findNums)):
+            dictT [findNums[i]] = i
+        length = len(nums)
+        for i in xrange(length):
+            if nums[i] in dictT:
+                j = i
+                while  j < length and nums[j] <= nums[i]:
+                    j += 1
+                    #print i, j, nums[i], dictT[nums[i]], findNums
+                if j == length:
+                    findNums[dictT[nums[i]]] = -1
+                else:
+                    findNums[dictT[nums[i]]] = nums[j]
+        return findNums
+                    
+                
+        
