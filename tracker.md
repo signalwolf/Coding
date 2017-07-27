@@ -7,6 +7,6 @@
 # day 6: 0723: 0 easy 
 # day 7: 0724: 0 easy
 # day 8: 0725: 10 easy (111, 111, 112, 172, 235, 257, 383, 404, 409, 414)
-# day 9: 0726: 3 easy (160, 434, 437)
-# day 10: 0727: target of the day: finish 190, 350, 463, 496
+# day 9: 0726: 2 easy (434, 437)
+# day 10: 0727: target of the day: finish 160, 190, 350, 463, 496
 # total: 45 easy
