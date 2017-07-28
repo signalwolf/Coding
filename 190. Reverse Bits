@@ -1,0 +1,10 @@
+class Solution:
+    # @param n, an integer
+    # @return an integer
+    def reverseBits(self, n):
+        if n <= 0:
+            return 0
+        else:
+            oribin='{0:032b}'.format(n)
+            reversebin=oribin[::-1]
+            return int(reversebin,2)
