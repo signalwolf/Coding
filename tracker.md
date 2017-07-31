@@ -9,7 +9,10 @@
 # day 8: 0725: 9 easy + duplicate 1(111, 111, 112, 172, 235, 257, 383, 404, 409, 414) 42
 # day 9: 0726: 2 easy (434, 437) 44
 # day 10: 0727: 5 easy + 2 duplicate (160, 160, 160, 190, 350, 463, 496) + 3 old code review easy (1, 7, 9)
-# day 11: 0728: 0 
-# day 12: 0729: 0
-# day 13: 0730: 0
+# day 11: 0728: 0 easy
+# day 12: 0729: 0 easy
+# day 13: 0730: 0 easy
 # total: 48 easy + 3 review + 1 tracker + duplicate 5 == 56
+
+Problem statement:
+# Not working during weekend. Day5/6/7 is 0, day 11/12/13 is 0 as well. Please work harder
