@@ -1,7 +1,7 @@
 Problem statement:
 Not working during weekend. Day5/6/7 is 0, day 11/12/13 is 0 as well. Please work harder
 
-day 1: 0718: 6 easy + 2 duplicate (101, 101, 101, 104, 107, 118, 119, 121) 7 
+day 1: 0718: 6 easy + 2 duplicate (101, 101, 101, 104, 107, 118, 119, 121) 7
 day 2: 0719: 13 easy (122, 125, 136, 141, 202, 203, 205, 206, 217, 219, 226, 231, 234)20
 day 3: 0720: 6 easy (237, 242, 258, 263, 268, 278) 26
 day 4: 0721: 3 easy (283, 292, 326) 29
