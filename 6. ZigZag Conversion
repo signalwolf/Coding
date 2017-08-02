@@ -1,0 +1,35 @@
+# 12:30 -- 13:31:
+# run time: 102ms, 76%; 112ms, 64%; 95ms, 87%
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        length = len(s)
+        if numRows <= 1 or length <= numRows:
+            return s
+        numset = 2 * numRows -2
+        temp = 0
+        output = ''
+        while temp <= numRows - 1:
+            if temp == 0 or temp == numRows- 1:
+                start = temp
+                while start < len(s):
+                    output += s[start]
+                    start += numset
+            else:
+                start = temp
+                end = numset - start
+                while start < ( length - 1) / numset * numset:
+                    output += s[start]
+                    output += s[end]
+                    start += numset
+                    end += numset
+                if length > start:
+                    output += s[start]
+                if length > end:
+                    output += s[end]
+            temp += 1
+        return output
