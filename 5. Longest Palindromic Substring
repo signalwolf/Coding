@@ -1,0 +1,38 @@
+# use dp to resolve this issue:
+# dp[i,j] = true means that s[i-1: j] is palindrome; else false
+# dp[i,j] if True if dp[i + 1, j - 1] is True and s[i - 1] == s[j -1]
+# 11:03 --> 11:42: working now --> 11:50: fixed to fit conncer case
+# conncer case: len(s) == 0? 
+# run time: 6919ms, 6.18%; 
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        if len(s) <= 1:
+            return s
+        dp = [[True for x in xrange(len(s))] for y in xrange(len(s))]
+        result = 1
+        # for i in xrange(len(s)):
+        #     dp[i][i] = True
+        #     if i < len(s) - 1:
+        #         if s[i] == s[i + 1]:
+        #             dp[i][i + 1] = True
+        #         else:
+        #             dp[i][i + 1] = False
+        temp = 1
+        output = s[0]
+        while temp != len(s):
+            for i in xrange(len(s) - temp):
+                j = temp + i 
+                if s[i] == s[j] and dp[i+1][j-1]:
+                    dp[i][j] = True
+                    old = result
+                    result = max (result, temp + 1)
+                    if result != old:
+                        output = s[i : j+1]
+                else:
+                    dp[i][j] = False
+            temp += 1
+        return output
