@@ -1,0 +1,25 @@
+# 09:43 --> 09:48
+# first submission failed on 'c', the lenght shall be 1, change the default length be 1 meet the problem of empty str
+# also it doesn't consider the case where the string is no dup, cause the result only update on dup case, it will fall
+# hashmap to resolve this problem: 
+# run time: 
+# 09:24 --> FAILED
+# solution: hashmap, start to track the point of last not dup location. 
+# SOLUTION: check the lenght very time you read an str not in dict
+# run time: 92ms, 73%
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype:int
+        """
+        start = maxLength = 0
+        usedChar = {}
+        # cdd --> maxlength = 2 --> start = 0
+        for i in range(len(s)):
+            if s[i] in usedChar and start <= usedChar[s[i]]:
+                start = usedChar[s[i]] + 1
+            else:
+                maxLength = max(maxLength, i - start + 1)
+            usedChar[s[i]] = i
+        return maxLength
