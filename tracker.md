@@ -15,5 +15,6 @@ day 11: 0728: 0 easy
 day 12: 0729: 0 easy
 day 13: 0730: 0 easy
 day 14: 0731: 0 easy
-day 15: 0801: 1 mid 
+day 15: 0801: 2 mid (2,3)
+dat 16: 0802: 1 mid (4)
 total: 48 easy + 3 review + 1 tracker + duplicate 5 == 56
