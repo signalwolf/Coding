@@ -1,0 +1,8 @@
+# there is mutiple solution for it:
+# Solution # 1 (Horizontal scanning) : easiest: check one by one, compare the first two find the LCP, if find it, then goes to compare LCP with 
+# the third string, keep going till compare with the last one. Time Complex : O(s) where s is the length of all strings.
+# Solution # 2 (Vertical scanning): easiest: check the first val of all string, then next, then next. keep going till reached 
+# the end of one string or meet some point not equal
+# Solution # 3 (Divide and conquer): LCP of all s is eqaul to the LCP of (LCP of s0 - sm) and (LCP of sm - sn)
+# Solution # 4 (Binary search): check s0 first, first check if 0 to mid of s0 is in all s? if yes, then start = mid, 
+# mid = (start + end) / 2. so this gave you a good answer.
