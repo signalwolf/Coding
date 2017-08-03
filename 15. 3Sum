@@ -1,0 +1,43 @@
+class Solution(object):
+    # Solution #1 : two pointer : 14% 
+#     def twoSum (self, target, nums, result, start, end):
+#         while start < end: 
+#             if nums[start] + nums[end] < target:
+#                 start = start + 1
+#             elif nums[start] + nums[end] > target:
+#                 end = end - 1
+#             else:
+#                 result.add ( (-target,nums[start], nums[end]))
+#                 start = start + 1 
+#                 end = end - 1
+#                 while (start < end and nums[start] == nums[start - 1]):
+#                     start += 1
+#                 while (start < end and nums[end] == nums[end + 1]):
+#                     end -= 1
+#         return result
+    def twoSum (self, target, nums, result, start, end): 
+        diction = {}
+        for index in xrange (start, end + 1):
+            if nums[index] in diction:
+                result.add (tuple([-target, nums[index], [target - nums[index]]]))
+            else:
+                diction[target - nums[index]] = index
+            
+    
+    
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        # use two sum solution O(n^2)
+        # sort it and two pointer (O(nlongn + n))
+        if len(nums) < 3:
+            return []
+        nums.sort ()
+        result = set()
+        for index in xrange (len(nums)):
+            target = -nums[index]
+            left, right = index + 1, len(nums) - 1
+            self.twoSum (target, nums, result, left, right)
+        return list(result)
