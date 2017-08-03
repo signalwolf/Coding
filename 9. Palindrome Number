@@ -2,6 +2,7 @@
 # Solution # 1: convert to string and revserse 
 # Solution # 2: reverse the number to see if it is equal to the same val
 # note: please consider the negative case and 0 case. Does negative val consider as palindrome number
+# run time: 205ms, 83%; 202ms, 85%; 225ms, 58%
 class Solution(object):
     def isPalindrome(self, x):
         """
