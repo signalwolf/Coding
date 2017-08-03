@@ -1,0 +1,42 @@
+# 09:42 -- 10:08:
+# run time: 125ms, 46%; 125ms, 46%; 112ms, 68% 
+# the base of roman word: 
+# A smaller number in front of a larger number means subtraction, all else means addition. For example, IV means 4, VI means 6.
+
+# You would not put more than one smaller number in front of a larger number to subtract. For example, IIV would not mean 3.
+
+# You must separate ones, tens, hundreds, and thousands as separate items. That means that 99 is XCIX, 90 + 9, but never should be written as IC. Similarly, 999 cannot be IM and 1999 cannot be MIM.
+class Solution(object):
+    def digittoRoman (self, num, flag):
+        # ROMAN = {'I': 1,'V': 5,'X': 10,'L': 50,'C': 100,'D': 500,'M': 1000}
+        ROMAN = {1:'I', 5:'V',10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'}
+        result = ''
+        if num < 4:
+            result = ROMAN[flag] * num
+        elif num == 4:
+            result = ROMAN[flag] + ROMAN[flag * 5]
+        elif num == 5:
+            result = ROMAN[flag * 5]
+        elif num < 9:
+            result = ROMAN[flag * 5] + (num -5) * ROMAN[flag]
+        elif num == 9:
+            result = ROMAN[flag ] + ROMAN[flag * 10]
+        # print result, flag, ROMAN[flag]
+        return result
+        
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        result = ''
+        flag = 1
+        while num != 0:
+            curr = num % 10
+            num = num / 10
+            if curr != 0:
+                result = self.digittoRoman (curr, flag) + result
+            flag = flag * 10
+        return result
+            
+        
