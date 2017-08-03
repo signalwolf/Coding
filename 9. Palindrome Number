@@ -1,0 +1,22 @@
+# Determine whether an integer is a palindrome. Do this without extra space.
+# Solution # 1: convert to string and revserse 
+# Solution # 2: reverse the number to see if it is equal to the same val
+# note: please consider the negative case and 0 case. Does negative val consider as palindrome number
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x < 0:
+            return False
+        y = x
+        reverse = 0
+        # reverse y, return y = x 
+        # question, negative number is True or False? 0 is True or False
+        while y != 0:
+            reverse = reverse * 10 + y % 10
+            y = y / 10
+            # check: 121 --> 0*121 + 1，12 --> 12, 1 --> 121 0
+        return reverse == x 
+        
