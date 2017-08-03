@@ -1,0 +1,16 @@
+# 13:08 --> 13:46: recursion  solution
+# run time: 52ms, 9% ; move the dict outside: 42ms, 31% ; 36ms, 67%
+class Solution(object):
+    dictT = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+        if len (digits) == 0:
+            return []
+        if len(digits) == 1:
+            return list(self.dictT[digits])
+        pre = self.letterCombinations (digits[:-1])
+        curr = self.dictT[digits[-1]]
+        return [p +c for p in pre for c in curr]
