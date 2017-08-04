@@ -6,3 +6,28 @@
 # Solution # 3 (Divide and conquer): LCP of all s is eqaul to the LCP of (LCP of s0 - sm) and (LCP of sm - sn)
 # Solution # 4 (Binary search): check s0 first, first check if 0 to mid of s0 is in all s? if yes, then start = mid, 
 # mid = (start + end) / 2. so this gave you a good answer.
+
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if len(strs) == 0:
+            return ''
+        if len(strs) == 1:
+            return strs[0]
+        comm_pre = strs[0]
+        for i in xrange(1, len(strs) ):
+            curr, j = strs[i], 0
+            if len(comm_pre) > len(curr):
+                temp = comm_pre
+                comm_pre = curr
+                curr = temp
+            if len(comm_pre) == 0:
+                return ''
+            while j < len(comm_pre):
+                if comm_pre[j] != curr[j]:
+                    comm_pre = comm_pre[:j]
+                j += 1
+        return comm_pre
