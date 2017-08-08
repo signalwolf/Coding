@@ -20,7 +20,7 @@ dat 16: 0802: 2 mid (4,6) + 3 easy review (9, 11, 14)
 day 17: 0803: 5 mid (12, 15, 16, 17, 19)
 day 18: 0804: 0
 day 19: 0805: 0
-day 20: 0806: 0
-day 21: 0807: 0
-day 22: 0808: 
+day 20: 0806: 0 
+day 21: 0807: 0 + matric understanding
+day 22: 0808: 1 mid (22) + 34 page (deep learning)
 total: 48 easy + 3 review + 1 tracker + duplicate 5 == 56
