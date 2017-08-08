@@ -1,0 +1,33 @@
+# code time: 07: 46 -- 08: 47: 
+# run time: 98ms, 5%; 99ms, 4% 
+# first must be (, end must be )
+# the first set must be half half: ((( ))) --> first 3 + end 3
+# the second replace the third with other: (()()) and removed this pair to have the other: (( + )) and ()(), combin together it goes to be (())()
+# then replance the second: () and remove it, it comes (( )) and () () --> ()()() and ()(())
+# looks like it have dependent on the previous result, 
+# n = 2 --> ()() and (())
+# use recursion, for example 3 = ((())), (() + )() , (() + ()), () + (()), () + ()(); 
+# base = n * ( + n * ), then (n -1) * ( + ) + generateParenthesis(n - 1) [i][last n], then (n - 2) * ( + ) + grnrtateParenthesis (n-1) [i] [last n + 1]
+# 1:1; 2:2; 3:5; 4: 1 + 5 * 3 but last n could have dup - 2= 14, one way to do it is by count the ( and ), if equal, not append. 
+# (((()))) --> ((() + ())), ((() + )()), ((()+))(), ((() + (()), ((() + ()() the last 2 is not the answer due to it is balanced and curr requirement is not balance, actually, it never be balanced requirement ---> (() + (())), (() + ()()), (() + ())() , (() +)(()) , (() + )()() 5 ---> () 5 = 15
+class Solution(object):
+    def generateParenthesis(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        if n == 0: 
+            return ''
+        if n == 1:
+            return ['()']
+        temp = 1
+        output = [n * '(' + n * ')']
+        while n - temp != 0:
+            pre = self.generateParenthesis (n - 1) 
+            for i in pre:
+                curr = (n - temp) * '(' + ')' + i[-n - temp + 1:] 
+                if curr.count ('(') == curr.count(')'):
+                    output.append (curr)
+            temp += 1
+        return output
+
