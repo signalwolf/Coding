@@ -1,4 +1,4 @@
-# 11:30
+# 11:30 --  12:19
 # run time:
 if len(nums) == 0:
     return [-1, -1]
