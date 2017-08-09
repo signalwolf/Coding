@@ -23,5 +23,5 @@ day 19: 0805: 0
 day 20: 0806: 0 
 day 21: 0807: 0 + matric understanding
 day 22: 0808: 3 mid (22, 24, 29) + 34 page (deep learning)
-day 23: 0809: 1 mid (33, )
+day 23: 0809: 2 mid (33, 34)
 total: 48 easy + 3 review + 1 tracker + duplicate 5 == 56
