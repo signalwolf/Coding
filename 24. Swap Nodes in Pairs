@@ -1,0 +1,29 @@
+# 09:40 --
+# run time: 42ms, 30%; 45ms, 22%; 32ms, 89%
+# test: [1,2,3,4] --> curr - 2, pre - 1 --> temp = curr.next [3], curr.next = pre [1], pre = curr [2], curr = temp [3]
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode (0)
+        dummy.next = head
+        pre, start = dummy, head
+        while start != None and start.next != None:
+            end = start.next
+            pre.next = end
+            temp = end.next
+            end.next = start
+            start.next = temp
+            pre = start
+            start = start.next
+        return dummy.next
+            
+        
