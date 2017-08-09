@@ -1,0 +1,66 @@
+# 11:30
+# run time:
+if len(nums) == 0:
+    return [-1, -1]
+elif len(nums) == 1:
+    if nums[0] == target:
+        return [0,0]
+    else:
+        return [-1,-1]
+elif len(nums) == 2:
+    if nums[0] == target and nums[1] == target:
+        return [0,1]
+    elif nums[0] == target:
+        return [0,0]
+    elif nums[1] == target:
+        return [1,1]
+    else:
+        return [-1,-1]
+
+start, end = 0, len(nums) - 1
+while start + 1 < end:
+    mid = start + (end - start) / 2
+    if nums[mid] > target:
+        end = mid
+    elif nums[mid] < target:
+        start = mid
+    else:
+        break
+return start, end, mid
+if start + 1 != end:
+    end_left = mid
+    while start + 1 < end_left:
+        mid_left = start + ( end_left - start) / 2
+        if nums[mid_left] >= target:
+            end_left = mid_left
+        elif nums[mid_left] < target:
+            start = mid_left
+    if nums[start] == target:
+        left = start
+    elif nums[end_left] == target:
+        left = end_left
+    start_right = mid
+    while start_right + 1 < end:
+        mid_right = start_right + (end - start_right) / 2
+        if nums[mid_right] > target:
+            end = mid_right
+        elif nums[mid_right] <= target:
+            start_right = mid_right
+    if nums[end] == target:
+        right = end
+    elif nums[start_right] == target:
+        right = start_right
+else:
+    if nums[start] == target:
+        left = start
+    else:
+        left = -1
+    if nums[end] == target:
+        right = end
+    else:
+        right = -1
+if left == -1 and right != -1:
+    left = right
+elif left != -1 and right == -1:
+    right = left
+return [left, right]
