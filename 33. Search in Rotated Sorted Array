@@ -1,0 +1,52 @@
+# 09:08: 
+# find lowest point and then binary search? log(N)
+# 4567
+#     012
+# 45ms, 31%; 35ms, 87%; 42ms, 39%
+class Solution(object):
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        lens = len(nums)
+        if lens == 0:
+            return -1
+        start, end = 0, lens - 1
+        endpoint = nums[end]
+        # 4567012 start = 0, end = 6; mid = 3; start = 3, end = 6, mid = 4; start = 3, end = 4 --> end is the lowest, start is the biggest
+        # 0124567 start = 0, end = 6; mid = 3; start = 0, end = 3 --> special case
+        # 1245670 0,6; 3,3,6; 4; 4,6;5;5,6;  --> end is the lowest, start is the biggest
+        if nums[start] > nums[end]:
+            while start + 1 < end:
+                mid = start + (end - start) / 2
+                if nums[mid] <= endpoint:
+                    end = mid
+                else:
+                    start = mid
+            low, high = end, start + lens
+        else:
+            low, high = start, end
+        
+        while low + 1 < high:
+            mid = low + (high - low) / 2
+            temp = mid
+            if mid >= lens:
+                mid -= lens
+            if nums[mid] < target:
+                low = temp
+            elif nums[mid] > target:
+                high = temp
+            else:
+                return mid
+        if low >= lens:
+            low -= lens
+        if high >= lens:
+            high -= lens
+        if nums[low] == target:
+            return low
+        if nums[high] == target:
+            return high
+        else:
+            return -1
