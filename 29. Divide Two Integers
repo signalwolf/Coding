@@ -1,6 +1,6 @@
 # forgot to consider negative number, it could be in dividend or divisor
 # 11:53 -- 12:05: first submit but failed as time limit exceed
-# 
+# Notice the bit operation here, it is mutiply by 2
 class Solution(object):
     # @return an integer
     def divide(self, dividend, divisor):
