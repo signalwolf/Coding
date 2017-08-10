@@ -1,5 +1,5 @@
 # 11:30 --  12:19
-# run time:
+# run time: 68ms, 4%; 42ms, 48%; 49ms, 23%; 
 if len(nums) == 0:
     return [-1, -1]
 elif len(nums) == 1:
