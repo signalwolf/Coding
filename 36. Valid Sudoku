@@ -1,0 +1,53 @@
+# run time 72ms, 69%; 75ms, 63%; 79ms, 53%
+class Solution(object):
+    def isValidSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+        """
+        lens = len(board)
+        dicts = {}
+        for i in xrange(lens):
+            dicts_row = {}
+            dicts_column = {}
+            # tracking board [0] to board [n] to see if there is duplicate: 
+            for j in xrange(lens):
+                # use diction to check if there is dup, for every row, it needed fresh one
+                # also, in same time check the column
+                # [0,0] [0,1] [0,1]
+                # [0,0] [1,0] [2,0]
+                if board[i][j] != '.':
+                    curr = int ( board[i][j] )
+                    if curr > lens or curr < 1:
+                        return False
+                    if curr in dicts_row:
+                        return False
+                    else:
+                        dicts_row [curr] = 1
+                if board [j][i] != '.':
+                    curr = int (board [j][i])
+                    if curr > lens or curr < 1:
+                        return False
+                    if curr in dicts_column:
+                        return False
+                    else:
+                        dicts_column [curr] = 1
+        row, column = 0 ,0 
+        while row < 3:
+            column = 0
+            while column < 3: 
+                dicts = {}
+                for i in xrange(3):
+                    for j in xrange(3):
+                        if board[i + column * 3][j + row * 3] != '.':
+                            curr = int( board[i + column * 3][j + row * 3] )
+                            if curr > lens or curr < 1:
+                                return False
+                            if curr in dicts:
+                                return False
+                            else:
+                                dicts[curr] = 1
+                # print dicts
+                column += 1
+            row += 1
+        return True
