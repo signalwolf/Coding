@@ -1,0 +1,57 @@
+# run time: 112ms, 55%; 76ms, 75%; 
+class Solution(object): 
+    def helper (self, nums, target, dicts):
+        if min(nums) > target:
+            return []
+        if len(nums) == 1:
+            output = []
+            for i in xrange (dicts[nums[0]] + 1):
+                if i * nums[0] == target:
+                    output.append ([nums[0]] * i)
+            return output
+            
+        
+        if len(nums) == 2:
+            output = []
+            for i in xrange(dicts[nums[0]] + 1):
+                for j in xrange(dicts[nums[1]] + 1):
+                    if i * nums[0] + j * nums[1] == target:
+                        output.append ([nums[0]] * i + [nums[1]] *j)
+            return output
+        else:
+            curr = nums[0]
+            nums = nums[1:]
+            output = []
+            for i in xrange(dicts[curr] + 1):
+                curr_target = target - curr * i 
+                if curr_target == 0:
+                    temp = [curr] * i
+                    output.append (temp)
+                else:
+                    result = self.helper (nums, curr_target, dicts)
+                    if len(result) != 0:
+                        temp = [curr] * i
+                        if type(result[0]) == type (2):
+                            output.append (temp + result)
+                        else:
+                            for x in result:
+                                output.append (temp + x)
+            return output
+    
+    def combinationSum2(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        if len(candidates) == 0:
+            return []
+        dicts = {}        
+        for i in candidates:
+            if i in dicts:
+                dicts[i] += 1
+            else:
+                dicts[i] = 1
+        nums = list(set(candidates))
+        nums.sort()
+        return self.helper (nums, target, dicts)
