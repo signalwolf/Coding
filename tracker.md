@@ -28,4 +28,5 @@ day 24: 0810: 3 mid (39, 40, 46)
 day 25: 0811: 0
 day 26: 0812: 0
 day 27: 0813: 
-total: 48 easy + 3 review + 1 tracker + duplicate 5 == 56
+
+Total: 68 + 3 dup + 
