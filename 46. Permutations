@@ -1,0 +1,26 @@
+
+# run time: 62ms, 87%; 66ms, 71%; 
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if len(nums) == 0:
+            return None
+        if len(nums) == 1:
+            return [nums]
+        if len(nums) == 2:
+            return [[nums[0], nums[1]], [nums[1], nums[0]]]
+            
+            # return output
+        else:
+            output = []
+            for i in xrange(len(nums)):
+                curr = [nums[i]]
+                curr_num = nums[0:i] + nums[i+1:]
+                result = self.permute (curr_num)
+                # print result
+                for j in result: 
+                    output.append (curr + j)
+            return output
