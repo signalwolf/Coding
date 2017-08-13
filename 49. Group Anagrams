@@ -1,0 +1,21 @@
+# 12:10 -- 12:16
+# 225ms, 68%; 232, 58%; 222ms, 71%
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        dicts = {}
+        for i in strs:
+            curr = ''.join(sorted(list(i)))
+            #print curr
+            if curr in dicts:
+                dicts[curr].append (i)
+            else:
+                dicts[curr] = [i]
+        output = []
+        #print dicts
+        for val in dicts.values():
+            output.append (val)
+        return output
