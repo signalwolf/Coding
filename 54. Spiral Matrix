@@ -1,0 +1,41 @@
+# 05:23 -- 05:52 --> 39ms, 26%; 28ms, 98%; 35ms, 52% 
+class Solution(object):
+    def spiralOrder(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        if len(matrix) == 0:
+            return matrix
+        row, column = len(matrix), len(matrix[0])
+        if column == 1 and row == 1:
+            return matrix[0]
+        if column == 1:
+            output = []
+            for i in matrix:
+                output.append (i[0])
+            return output
+        if row == 1:
+            return matrix[0]
+        output = []
+        first_row = matrix [0]
+        last_row = matrix[-1]
+        matrix.pop (0)
+        matrix.pop (-1)
+        first_col, last_col = [], []
+        #print matrix
+        if len(matrix) == 0:
+            last_row.reverse()
+            output = first_row + last_row
+        else:
+            if len(matrix[0]) == 0:
+                return []
+            for i in xrange (len(matrix)):
+                first_col.append (matrix[i].pop(0))
+                last_col.append (matrix[i].pop(-1))
+            first_col.reverse()
+            last_row.reverse()
+            #print first_row, last_col, last_row, first_col,matrix
+            # notice here, concatente list with empty list is still the list
+            output = first_row + last_col + last_row + first_col + self.spiralOrder (matrix)
+        return output
