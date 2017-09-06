@@ -1,0 +1,21 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+# code time: 0906: 05:58 am -- 06:02 am divide and conquer passed.
+# run time: 36ms, 49%; 36ms, 49%; 36ms, 49%；Optimization part, I added the root.left != None judge, but suprisingly, it got slower. 
+
+# code time: 0906: 06:05 am -- queue method
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        # method: queue: failed 
+        # method: another recursion method totally forgot
+        
+        
