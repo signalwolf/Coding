@@ -2,3 +2,4 @@ Previous time spend on back ot China trip and sick in between.
 Day1: 0912: 4 mid (95, 96, 102, 103) --> 在做95号题的时候犯了一个错误，我先定义了一个listnode,然后修改它的left, right并append到一个list里面。然后结果错误，因为我修
 后一个的left, right 的时候，其实我的之前存入到list里面的也被改变了，最终导致之前的被覆盖。在每次都重新建立一个listnode后，得到了解决。
 Day2: 0913: 3 mid (105, 109, 127)
+Day15: 0928: (134,138)
