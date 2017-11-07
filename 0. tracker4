@@ -9,4 +9,4 @@
 11/06: 
       227. Basic Calculator II： 这是基本的运算方法，在这里面，处理的方法还是很有趣的。它其实就是simulate人脑的想法然后向前不断的推进
       228. Summary Ranges： 不知道为什么，我觉得这道题还是非常的简单的。而且我的答案居然超过了98%的人，奇怪。
-      229. Majority Element II: 也是很简单的题目，我又把问题想难了，其实我一开始就用最为简单的方法做出来，不要说去用那些复杂的方法了。 在网上看了看，发现了其中的一个叫做Boyer–Moore_majority_vote_algorithm 的东西
+      229. Majority Element II: 也是很简单的题目，我又把问题想难了，其实我一开始就用最为简单的方法做出来，不要说去用那些复杂的方法了。 在网上看了看，发现了其中的一个叫做Boyer–Moore_majority_vote_algorithm 的东。我自己写的东西其实不满足题目中说的O(1) space的要求啊
