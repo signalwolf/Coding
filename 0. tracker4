@@ -14,3 +14,8 @@
       230: Kth Smallest Element in a BST: 我以前学的那些in order, post order and pre order的算法需要复习一下了。其实就是给binary tree排序
       236: Lowest Common Ancestor of a Binary Tree： 一次就写过了，还是很不错的。
       238. Product of Array Except Self: 这个算法很巧妙，只是好奇是怎么想到的。一个俩遍的遍历就可以得到这个结果。其实可以想象，如果有一个数组能够代表其前面的乘积和而后面的乘积和也算出来了的话，那么就能容易得到结果。前面的乘积和在这个例子中直接用数代替了，也可以用单个的数代替；而后面的则需要一个数组来保存就好。
+11/08:
+      240. Search a 2D Matrix II: 我自己写的code非常的复杂，通过各种判断来求解。其实使用稍微傻逼一点的办法但是写起来更快更好更稳当，这才是我应该追求的。我需要谨记这一点。
+      241. Different Ways to Add Parentheses: 这个其实就是说在每一个符号的两边的值结合后再算
+      264. Ugly Number II: 还是同样的原因，不用想最好的解。一次能解出问题的一部分就好。慢慢的重复性的解决问题而不要期待一次性最好的解除问题
+      
