@@ -1,0 +1,41 @@
+# 69ms, 62%;
+# it's easy to think about how to generate the result
+
+"""
+Definition of TreeNode:
+class TreeNode:
+    def __init__(self, val):
+        sef.val = val
+        self.left, self.right = None, None
+"""
+
+
+class Solution:
+    """
+    @param: root: The root of binary tree.
+    @return: The maximum amount of money you can rob tonight
+    """
+    
+    def helper (self, root):
+        if root == None:
+            return [0,0,0]
+        left = self.helper (root.left)
+        right = self.helper (root.right)
+        comb1 = left[1] + left[2] + right[0]
+        comb2 = left[1] + left[2] + right[1] + right[2]
+        comb3 = left[0] + right[1] + right [2]
+        comb4 = left[0] + right[0]
+        return [max(comb1, comb2 + root.val, comb3, comb4), left[0], right[0]]
+    
+    def houseRobber3(self, root):
+        # write your code here
+        # best(root), best (left), best(right) relationship?
+        # use root, then root.val + max (best (left.left), best (left.right), best(rigth, right), best (right, left)
+        # or best (left) best (right)
+        # recursion: 
+        # define:
+        # change: max (left_return[1],[2] right_return[1],[2] ) + root.val, left_return[0, right_return[0]; 
+        # return: Bottom up; if root.left == None and right == None: return root.val, 0, 0; return three value: best(root), best(root.left), best (root.right)
+        if root == None:
+            return 0
+        return self.helper (root)[0]
